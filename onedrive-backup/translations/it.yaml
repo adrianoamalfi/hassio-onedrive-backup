@@ -1,0 +1,86 @@
+configuration:
+  local_backup_num_to_keep:
+    name: Numero di backup locali
+    description: Il numero massimo di backup da mantenere localmente in Home Assistant
+  onedrive_backup_num_to_keep:
+    name: Numero di backup su OneDrive
+    description: Il numero massimo di backup da mantenere su OneDrive
+  backup_interval_days:
+    name: Intervallo di backup (giorni)
+    description: La frequenza di creazione dei backup in giorni. Per impostare una frequenza inferiore al giorno puoi utilizzare un numero tra 0 e 1, ad esempio se il valore è impostato a 0,5, la frequenza di backup sarà ogni 12 ore.
+  generational_days: 
+    name: Backup generazionali - Giorni
+    description: Il numero di backup giornalieri da mantenere. Questo viene utilizzato per creare un backup giornaliero per il numero di giorni specificato.
+  generational_weeks:  
+    name: Backup generazionali - Settimane
+    description: Il numero di backup settimanali da mantenere. Questo viene utilizzato per creare un backup settimanale per il numero di settimane specificato.
+  generational_months:
+    name: Backup generazionali - Mesi
+    description: Il numero di backup mensili da mantenere. Questo viene utilizzato per creare un backup mensile per il numero di mesi specificato.
+  generational_years:
+    name: Backup generazionali - Anni
+    description: Il numero di backup annuali da mantenere. Questo viene utilizzato per creare un backup annuale per il numero di anni specificato.
+  backup_name:
+    name: Nome del backup
+    description: Nome da utilizzare per i backup creati dall'addon.
+  monitor_all_local_backups:
+    name: Monitora tutti i backup locali
+    description: Utilizza questa opzione per monitorare tutti i backup creati localmente, non solo quelli creati dall'addon. Tutte le regole di quota dei backup definite verranno applicate qui, inclusa l'eliminazione dei backup quando questa opzione è abilitata.
+  ignore_upgrade_backups:
+    name: Ignora i backup di aggiornamento
+    description: Quando abilitato, l'addon ignorerà i backup creati automaticamente durante gli aggiornamenti (di Home Assistant / addon).
+  backup_passwd:
+    name: Password del backup
+    description: La password da utilizzare per proteggere i backup creati e caricati su OneDrive.
+  notify_on_error:
+    name: Notifica in caso di errore
+    description: Abilita notifiche persistenti in Home Assistant per notificare i fallimenti dei backup.
+  hass_api_timeout_minutes:
+    name: Timeout API Home Assistant (minuti)
+    description: Questo ti consente di impostare il timeout configurato quando chiami le API di Home Assistant.
+  exclude_media_folder:
+    name: Escludi cartella media
+    description: Quando abilitato, verrà creato un backup parziale senza la cartella media.
+  exclude_ssl_folder:
+    name: Escludi cartella SSL
+    description: Quando abilitato, verrà creato un backup parziale senza la cartella SSL.
+  exclude_share_folder:
+    name: Escludi cartella share
+    description: Quando abilitato, verrà creato un backup parziale senza la cartella share.
+  exclude_local_addons_folder:
+    name: Escludi cartella addon locali
+    description: Quando abilitato, verrà creato un backup parziale senza la cartella addons/local.
+  backup_allowed_hours:
+    name: Ore consentite
+    description: Questo accetta un intervallo di ore da 0 a 23 durante le quali verranno eseguiti i backup. Se è necessario un backup, verrà eseguito nella prima finestra consentita nelle ore definite. Il formato è uno o più intervalli separati da una virgola. Un intervallo è specificato da un trattino.
+  backup_instance_name:
+    name: Nome dell'istanza di backup
+    description: Questo è utilizzato per distinguere tra più installazioni di Home Assistant che eseguono backup sullo stesso account OneDrive. I backup di OneDrive saranno separati per ciascun 'Nome Istanze'.
+  sync_paths:
+    name: Percorsi di sincronizzazione file
+    description: >
+                Questo ti consente di specificare un elenco di percorsi che l'addon sincronizzerà con OneDrive, ad esempio per sincronizzare la tua cartella **Media** con OneDrive ed escluderla dai backup per risparmiare spazio di archiviazione (poiché sarà archiviata una sola volta). I file vengono archiviati in una nuova directory chiamata "FileSync" sotto la radice della cartella App. La struttura della cartella di origine viene mantenuta in questa cartella.
+                Le cartelle (sotto) supportate devono trovarsi sotto una delle seguenti radici: /config, /ssl, /share, /media, /addons, /addon_configs, /homeassistant
+                Puoi specificare un array di elementi contenenti "path" e "recursive".
+                Vedi la documentazione per i dettagli completi sull'uso.
+  file_sync_remove_deleted: 
+    name: Rimuovi file eliminati durante la sincronizzazione
+    description: Quando abilitato, la cartella FileSync su OneDrive rifletterà i percorsi di sincronizzazione inclusi, il che significa che qualsiasi contenuto 'extra' rimasto su OneDrive verrà rimosso.
+  excluded_addons:
+    name: Addon esclusi
+    description: Quando abilitato, verranno creati backup parziali escludendo gli addon specificati in questo elenco. È necessario specificare l'ID addon (slug) in questo elenco.
+  log_level:
+    name: Livello di log
+    description: Puoi scegliere di vedere più / meno log regolando la verbosità dei log dell'addon.
+  enable_anonymous_telemetry:
+    name: Abilita telemetria anonima
+    description: Invia una telemetria anonima una volta al giorno contenente dati sulle funzionalità abilitate nell'addon. Questo aiuta a concentrare lo sviluppo su funzionalità rilevanti e migliorare l'addon.
+  enable_anonymous_error_reporting:
+    name: Abilita la segnalazione anonima degli errori
+    description: Invia messaggi di errore anonimi (con eccezioni) per aiutare a identificare i problemi con l'addon.
+  ignore_allowed_hours_for_file_sync:
+    name: Ignora le ore consentite per la sincronizzazione file
+    description: La sincronizzazione dei file è sempre abilitata indipendentemente dalla finestra temporale delle "Ore consentite" per i backup.
+  dark_mode:
+    name: Modalità scura
+    description: Usa la modalità scura per l'interfaccia dell'addon.
